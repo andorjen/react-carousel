@@ -6,6 +6,7 @@ it('renders carousel without crashing', function(){
   render( <Carousel photos= {TEST_IMAGES} title="test" />)
 })
 
+
 it("works when you click on the right arrow", function() {
   const { container } = render(
     <Carousel
@@ -33,6 +34,7 @@ it("works when you click on the right arrow", function() {
     container.querySelector('img[alt="testing image 2"]')
   ).toBeInTheDocument();
 });
+
 
 it("works when you click on the left arrow", function() {
   const { container, debug } = render(
@@ -75,6 +77,7 @@ it("works when you click on the left arrow", function() {
 
 });
 
+
 it("left arrow doesn't show on first image", function() {
   const { container } = render(
     <Carousel
@@ -90,6 +93,7 @@ it("left arrow doesn't show on first image", function() {
     container.querySelector(".fa-chevron-circle-right")
   ).toBeInTheDocument();
 });
+
 
 it("right arrow doesn't show on last image", function() {
   const { container, debug } = render(

@@ -3,7 +3,8 @@ import "./Carousel.css";
 import Card from "./Card";
 
 
-/** Carousel: displays images and arrows to navigate through them
+/** Carousel: displays images and arrows to navigate through them,
+ * if at beginning of carousel, hide left arrow, if at end, hide right arrow.
  * 
  * Props:
  * - photos: array of {src, caption} objects
@@ -24,6 +25,8 @@ import Card from "./Card";
   function goForward() {
     setCurrCardIdx(currCardIdx + 1);
   }
+
+  //Decrements currCardIdx state by 1
   function goBackward(){
     setCurrCardIdx(currCardIdx - 1);
   }
@@ -32,20 +35,26 @@ import Card from "./Card";
     <div className="Carousel">
       <h1>{title}</h1>
       <div className="Carousel-main">
-        <i
+        {
+          currCardIdx!==0 &&
+          <i
           className="fas fa-chevron-circle-left fa-2x"
           onClick={goBackward}
-        />
+          />
+        }
         <Card
           caption={currCard.caption}
           src={currCard.src}
           currNum={currCardIdx + 1}
           totalNum={total}
         />
-        <i
+        {
+          currCardIdx!==photos.length-1 && 
+          <i
           className="fas fa-chevron-circle-right fa-2x"
           onClick={goForward}
-        />
+          />
+        }
       </div>
     </div>
   );
