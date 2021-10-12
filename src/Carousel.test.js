@@ -2,6 +2,10 @@ import { render, fireEvent } from "@testing-library/react";
 import Carousel from "./Carousel";
 import TEST_IMAGES from "./_testCommon.js";
 
+it('renders carousel without crashing', function(){
+  render( <Carousel photos= {TEST_IMAGES} title="test" />)
+})
+
 it("works when you click on the right arrow", function() {
   const { container } = render(
     <Carousel
@@ -29,3 +33,8 @@ it("works when you click on the right arrow", function() {
     container.querySelector('img[alt="testing image 2"]')
   ).toBeInTheDocument();
 });
+
+it("matches snapshot", function(){
+  const {container} = render( <Carousel photos= {TEST_IMAGES} title="test" />);
+  expect(container).toMatchSnapshot();
+})
