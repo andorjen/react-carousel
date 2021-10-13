@@ -36,7 +36,7 @@ import Card from "./Card";
       <h1>{title}</h1>
       <div className="Carousel-main">
         {
-          currCardIdx!==0 &&
+          currCardIdx!==0 &&      //make variables to be true/false
           <i
           className="fas fa-chevron-circle-left fa-2x"
           onClick={goBackward}

@@ -6,6 +6,10 @@ it('renders carousel without crashing', function(){
   render( <Carousel photos= {TEST_IMAGES} title="test" />)
 })
 
+it("matches snapshot", function(){
+  const {container} = render( <Carousel photos= {TEST_IMAGES} title="test" />);
+  expect(container).toMatchSnapshot();
+})
 
 it("works when you click on the right arrow", function() {
   const { container } = render(
@@ -134,7 +138,3 @@ it("right arrow doesn't show on last image", function() {
 });
 
 
-it("matches snapshot", function(){
-  const {container} = render( <Carousel photos= {TEST_IMAGES} title="test" />);
-  expect(container).toMatchSnapshot();
-})
